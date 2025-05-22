@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7611114806000419211}
   - component: {fileID: 2171747485767850270}
   - component: {fileID: 2172889841232559834}
+  - component: {fileID: 8811096537808760666}
   m_Layer: 7
   m_Name: Pad_Cake
   m_TagString: Untagged
@@ -107,6 +108,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2047228424725224544, guid: 6524c1de4d7db9e44ac6ab511a6ced7f, type: 3}
+--- !u!114 &8811096537808760666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3113404346423206554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7c4cffc42a8134190a6044b294fb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7651086464597496533
 GameObject:
   m_ObjectHideFlags: 0
