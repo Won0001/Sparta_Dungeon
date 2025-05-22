@@ -11,17 +11,58 @@ public class PlayerCondition : MonoBehaviour
     private float originJumpForce;
     private bool isBuffActive = false;
     
+    public float fallDamageThreshold = 10f;
+    public float fallDamageMultiplier = 1.1f;
+    
+    private float fallVelocity;
+    private Rigidbody _rigidbody;
+    private bool isGrounded;
+    
     Condition health {get{return uiCondition.Health;}}
     Condition buff {get{return uiCondition.Buff;}}
 
     private void Awake()
     {
+        _rigidbody = GetComponent<Rigidbody>();
         playerController = GetComponent<PlayerController>();
     }
-
+    
     private void Start()
     {
         originJumpForce = playerController.jumpForce;
+    }
+
+    private void Update()
+    {
+        fallVelocity = _rigidbody.velocity.y;
+        isGrounded = playerController.IsGrounded();
+        if (isGrounded && fallVelocity < -fallDamageThreshold)
+        {
+            float fallDamage = CalculateFallDamage(fallVelocity);
+            TakeDamage(fallDamage);
+        }
+    }
+
+    private float CalculateFallDamage(float velocity)
+    {
+        // 음수 속도를 양수로 변환
+        float fallSpeed = Mathf.Abs(velocity);
+        
+        // 임계값을 넘는 속도에 대해서만 데미지 계산
+        float excessSpeed = fallSpeed - fallDamageThreshold;
+        
+        // 데미지 계산 (속도가 빠를수록 더 큰 데미지)
+        return excessSpeed * fallDamageMultiplier;
+    }
+
+    private void TakeDamage(float damage)
+    {
+        health.Sub(damage);
+
+        if (health.curValue <= 0)
+        {
+            Die();
+        }
     }
 
     public void ActivateJumpBuff()
@@ -59,17 +100,8 @@ public class PlayerCondition : MonoBehaviour
         health.Add(amount);
     }
 
-    public void FallDamage()
-    {
-        
-    }
-
     public void Die()
     {
-        if (CharacterManager.Instance.Player.playerCondition.health.curValue <= 0)
-        {
-            Destroy(gameObject);
-            GameManager.Instance.EndGame();
-        }
+        GameManager.Instance.GameOver();
     }
 }
