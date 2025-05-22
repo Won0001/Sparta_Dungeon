@@ -331,6 +331,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4597813263184039044, guid: d627fc95fa1638b4c94937c2e23881a7, type: 3}
   m_PrefabInstance: {fileID: 1445321958}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &309045311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 309045312}
+  m_Layer: 0
+  m_Name: PointA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &309045312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309045311}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.3, y: 24.35, z: 34.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &373872493
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +470,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474220053}
   m_CullTransparentMesh: 1
+--- !u!1 &506489895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 506489896}
+  m_Layer: 0
+  m_Name: PointB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &506489896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506489895}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.3, y: 24.35, z: 47.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &518513496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -686,13 +748,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625348248}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8812859902962766005}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1029998914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &683405078
 GameObject:
@@ -1788,6 +1850,7 @@ Transform:
   - {fileID: 552600498}
   - {fileID: 1274484149249060547}
   - {fileID: 4674286093290181908}
+  - {fileID: 625348249}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1138397160 stripped
@@ -2393,7 +2456,7 @@ Transform:
   m_GameObject: {fileID: 1477175538}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.3201874, z: -0, w: 0.94735426}
-  m_LocalPosition: {x: -43.02, y: 1.35, z: -44.76}
+  m_LocalPosition: {x: 10.13, y: 27.2, z: 24.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3525,6 +3588,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8149735812541377882, guid: f3b6185de75d6464caf62333d288fe97, type: 3}
+      propertyPath: pointA
+      value: 
+      objectReference: {fileID: 309045312}
+    - target: {fileID: 8149735812541377882, guid: f3b6185de75d6464caf62333d288fe97, type: 3}
+      propertyPath: pointB
+      value: 
+      objectReference: {fileID: 506489896}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3609,6 +3680,7 @@ SceneRoots:
   - {fileID: 373872494}
   - {fileID: 1029998914}
   - {fileID: 49622623}
-  - {fileID: 625348249}
+  - {fileID: 506489896}
+  - {fileID: 309045312}
   - {fileID: 1666090158}
   - {fileID: 1482420521}

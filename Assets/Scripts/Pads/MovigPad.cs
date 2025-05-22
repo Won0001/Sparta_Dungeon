@@ -3,22 +3,43 @@ using UnityEngine;
 
 public class MovigPad : MonoBehaviour
 {
-    private Transform pointA;
-    private Transform pointB;
-    private bool checkPoint = false;
+    public Transform pointA;
+    public Transform pointB;
     
+    private Vector3 targetPosition;
     public float speed;
+
+    private void Start()
+    {
+        targetPosition = pointB.position;
+    }
+
     private void Update()
     {
-        if (checkPoint)
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
         {
-            transform.position = Vector3.Lerp(pointA.position, pointB.position, speed * Time.deltaTime);
-            checkPoint = false;
+            if (targetPosition == pointA.position)
+            {
+                targetPosition = pointB.position;
+            }
+            else
+            {
+                targetPosition = pointA.position;
+            }
         }
-        else if (!checkPoint)
-        {
-            transform.position = Vector3.Lerp(pointB.position, pointA.position, speed * Time.deltaTime);
-            checkPoint = true;
-        }
+    }
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+            collision.transform.SetParent(transform);
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+            collision.transform.SetParent(null);
     }
 }
