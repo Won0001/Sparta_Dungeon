@@ -1,7 +1,16 @@
 using UnityEngine;
 
-public class UICondition : MonoBehaviour
+namespace UI
 {
-    public Condition Health;
-    public Condition Buff;
+    public class UICondition : MonoBehaviour
+    {
+        public Condition Health;
+        public Condition Buff;
+
+        private void Start()
+        {
+            CharacterManager.Instance.Player.playerCondition.uiCondition = this;
+            Buff.gameObject.SetActive(false);
+        }
+    }
 }
