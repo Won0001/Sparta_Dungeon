@@ -1,35 +1,31 @@
 using System;
 using UnityEngine;
 
-public class MovigPad : MonoBehaviour
+public class MovingPad : MonoBehaviour
 {
-    public Transform pointA;
-    public Transform pointB;
-    
-    private Vector3 targetPosition;
+    public Vector3 moveDirection = Vector3.forward;
+    public float moveDistance;
     public float speed;
+
+    private Vector3 startPoint;
+    private Vector3 targetPoint;
 
     private void Start()
     {
-        targetPosition = pointB.position;
+        startPoint = transform.position;
+        targetPoint = startPoint + moveDirection.normalized * moveDistance;
     }
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+        if (Vector3.Distance(transform.position, targetPoint) < 0.01f)
         {
-            if (targetPosition == pointA.position)
-            {
-                targetPosition = pointB.position;
-            }
-            else
-            {
-                targetPosition = pointA.position;
-            }
+            (startPoint, targetPoint) = (targetPoint, startPoint);
         }
     }
+
     
     private void OnCollisionEnter(Collision collision)
     {

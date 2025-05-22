@@ -119,6 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e9143bd73beef4fb1403a47908b2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointA: {fileID: 0}
-  pointB: {fileID: 0}
+  moveDirection: {x: 0, y: 0, z: 1}
+  moveDistance: 10
   speed: 5
