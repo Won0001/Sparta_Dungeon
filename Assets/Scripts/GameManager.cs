@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance{get; private set;}
-    public GameOverPanel gameOverPanel;
+    public GamePanelController gamePanelController;
     private void Awake()
     {
         if (Instance == null && Instance != this)
@@ -26,7 +26,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        gameOverPanel.useGameOverPanel();
+        gamePanelController.useGameOverPanel();
+        Time.timeScale = 0;
+    }
+
+    public void GameClear()
+    {
+        gamePanelController.useGameClearPanel();
         Time.timeScale = 0;
     }
 }
