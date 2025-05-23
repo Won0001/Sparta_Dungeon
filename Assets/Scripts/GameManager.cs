@@ -33,6 +33,5 @@ public class GameManager : MonoBehaviour
     public void GameClear()
     {
         gamePanelController.useGameClearPanel();
-        Time.timeScale = 0;
     }
 }
