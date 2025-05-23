@@ -9,20 +9,15 @@ public class JumpPad : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Player player = other.GetComponent<Player>();
+        Rigidbody playerRb = player.GetComponent<Rigidbody>();
+        
+        float boostedJumpForce = player.playerController.jumpForce * jumpMultiplier;
+
         if (other.CompareTag("Player"))
         {
-            Player player = other.GetComponent<Player>();
-            if (player != null)
-            {
-                float boostedJumpForce = player.playerController.jumpForce * jumpMultiplier;
-
-                Rigidbody playerRb = player.GetComponent<Rigidbody>();
-                if (playerRb != null)
-                {
-                    playerRb.velocity = Vector3.zero;
-                    playerRb.AddForce(Vector3.up * boostedJumpForce, ForceMode.Impulse);
-                }
-            }
+            playerRb.velocity = Vector3.zero;
+            playerRb.AddForce(Vector3.up * boostedJumpForce, ForceMode.Impulse);
         }
     }
 }
